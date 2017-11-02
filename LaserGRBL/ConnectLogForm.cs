@@ -95,7 +95,7 @@ namespace LaserGRBL
 			CBPort.BeginUpdate();
 			CBPort.Items.Clear();
 
-			foreach (string portname in System.IO.Ports.SerialPort.GetPortNames())
+			foreach (string portname in GetPortNames())
 			{
 				string purgename = portname;
 
@@ -112,6 +112,12 @@ namespace LaserGRBL
 			else if (CBPort.Items.Count > 0)
 				CBPort.SelectedIndex = CBPort.Items.Count -1;
 			CBPort.EndUpdate();
+		}
+
+		private System.Collections.Generic.IEnumerable<string> GetPortNames()
+		{
+			//return System.IO.Ports.SerialPort.GetPortNames();
+			return new System.Collections.Generic.List<string>() { "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9" };
 		}
 		
 		void BtnConnectDisconnectClick(object sender, EventArgs e)

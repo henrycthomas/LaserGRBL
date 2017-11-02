@@ -162,6 +162,8 @@ namespace LaserGRBL
 		private Tools.ThreadObject TX;
 		private Tools.ThreadObject RX;
 
+		public string TxDiagInfo = "nothing to do";
+
 		public GrblCore(System.Windows.Forms.Control syncroObject)
 		{
 			SetStatus(MacStatus.Disconnected);
@@ -570,6 +572,7 @@ namespace LaserGRBL
 
 		private void QueryPosition()
 		{
+			txcounter++;
 			SendImmediate(63, true);
 			lastPosRequest = Tools.HiResTimer.TotalMilliseconds; 
 		}
@@ -726,11 +729,16 @@ namespace LaserGRBL
 		{
 			lock (this)
 			{
+				System.Threading.Thread.Sleep(50);
 				GrblReset();
+				System.Threading.Thread.Sleep(50);
 				QueryPosition();
+				System.Threading.Thread.Sleep(50);
+				CycleStartResume();
 			}
 		}
 
+		private int txcounter, rxcounter;
 		private long connectStart;
 		private long lastPosRequest;
 		protected void ThreadTX()
@@ -745,14 +753,21 @@ namespace LaserGRBL
 					if (!TX.MustExitTH() && CanSend())
 						SendLine();
 
-					if (Tools.HiResTimer.TotalMilliseconds - lastPosRequest > 200)
+					if (Tools.HiResTimer.TotalMilliseconds - lastPosRequest > 2000)
 						QueryPosition();
 
-					TX.SleepTime = CanSend() ? 0 : 1; //sleep only if no more data to send
+					TX.SleepTime = CanSend() ? 3 : 15; //sleep only if no more data to send
+
+					RefreshInfo();
 				}
 				catch (Exception ex)
 				{ Logger.LogException("ThreadTX", ex); }
 			}
+		}
+
+		private void RefreshInfo()
+		{
+			TxDiagInfo = string.Format("TxBuf[{0}] TxAct[{1}] RxAct[{2}]", Buffer, txcounter % 1000, rxcounter % 1000);
 		}
 
 		private void OnConnectTimeout()
@@ -797,6 +812,8 @@ namespace LaserGRBL
 
 		private void SendLine()
 		{
+			txcounter++;
+
 			GrblCommand tosend = PeekNextCommand();
 			if (tosend != null)
 			{
@@ -850,6 +867,8 @@ namespace LaserGRBL
 						}
 					}
 				}
+
+				rxcounter++;
 			}
 			catch (Exception ex)
 			{ Logger.LogException("ThreadRX", ex); }
@@ -1160,6 +1179,7 @@ namespace LaserGRBL
 			}
 			catch { return value.ToString(); }
 		}
+
 	}
 
 

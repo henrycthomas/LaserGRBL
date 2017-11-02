@@ -181,6 +181,8 @@ namespace LaserGRBL
 					break;
 			}
 
+			LblTx.Text = Core.TxDiagInfo;
+
 			ResumeLayout();
 		}
 
