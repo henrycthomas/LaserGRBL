@@ -162,6 +162,8 @@ namespace LaserGRBL
 		private Tools.ThreadObject TX;
 		private Tools.ThreadObject RX;
 
+		private int txcounter, rxcounter, errcounter;
+
 		public string TxDiagInfo = "nothing to do";
 
 		public GrblCore(System.Windows.Forms.Control syncroObject)
@@ -189,6 +191,9 @@ namespace LaserGRBL
 
 			mCurOvFeed = mCurOvRapids = mCurOvSpindle = 100;
 			mTarOvFeed = mTarOvRapids = mTarOvSpindle = 100;
+			txcounter = rxcounter = errcounter = 0;
+
+			RefreshInfo();
 		}
 
 		private void SetStatus(MacStatus value)
@@ -549,6 +554,7 @@ namespace LaserGRBL
 				{ ClearQueue(false); }
 
 				SetStatus(MacStatus.Disconnected);
+				RefreshInfo();
 			}
 			catch (Exception ex)
 			{
@@ -588,6 +594,8 @@ namespace LaserGRBL
 
 				mCurOvFeed = mCurOvRapids = mCurOvSpindle = 100;
 				mTarOvFeed = mTarOvRapids = mTarOvSpindle = 100;
+
+				txcounter = rxcounter = errcounter = 0;
 			}
 
 			RiseOverrideChanged();
@@ -738,7 +746,6 @@ namespace LaserGRBL
 			}
 		}
 
-		private int txcounter, rxcounter;
 		private long connectStart;
 		private long lastPosRequest;
 		protected void ThreadTX()
@@ -767,7 +774,7 @@ namespace LaserGRBL
 
 		private void RefreshInfo()
 		{
-			TxDiagInfo = string.Format("TxBuf[{0}] TxAct[{1}] RxAct[{2}]", Buffer, txcounter % 1000, rxcounter % 1000);
+			TxDiagInfo = string.Format("TxBuf[{0:000}] Tx#[{1:000}] Rx#[{2:000}] Err#[{3:000}]", Buffer, txcounter % 1000, rxcounter % 1000, errcounter);
 		}
 
 		private void OnConnectTimeout()
@@ -948,6 +955,9 @@ namespace LaserGRBL
 
 					pending.SetResult(rline, SupportCSV);
 					mBuffer -= pending.SerialData.Length;
+
+					if (pending.Status == GrblCommand.CommandStatus.ResponseBad)
+						errcounter++;
 
 					if (mTP.InProgram && pending.RepeatCount == 0) //solo se non è una ripetizione aggiorna il tempo
 						mTP.JobExecuted(pending.TimeOffset);
