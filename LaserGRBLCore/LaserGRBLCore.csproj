@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Mono.Posix.NETStandard" Version="1.0.0-beta3" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.5.0-preview1-25914-04" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.0-preview1-25914-04" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1-beta1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="CSV\alarm_codes.csv" />
+    <None Remove="CSV\error_codes.csv" />
+    <None Remove="CSV\setting_codes.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="System.IO.Ports\" />
+    <Folder Include="Comms\" />
+    <Folder Include="CSV\" />
+    <Folder Include="Logger\" />
+    <Folder Include="Tools\" />
+    <Folder Include="RasterConverter\" />
+    <Folder Include="CsPotrace\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CSV\alarm_codes.csv" />
+    <EmbeddedResource Include="CSV\error_codes.csv" />
+    <EmbeddedResource Include="CSV\setting_codes.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Tools\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Strings.da.resx">
+      <DependentUpon>Strings.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Strings.de.resx">
+      <DependentUpon>Strings.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Strings.es.resx">
+      <DependentUpon>Strings.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Strings.fr.resx">
+      <DependentUpon>Strings.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Strings.it.resx">
+      <DependentUpon>Strings.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Strings.pt-BR.resx">
+      <DependentUpon>Strings.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Strings.ru.resx">
+      <DependentUpon>Strings.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Strings.zh-CN.resx">
+      <DependentUpon>Strings.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

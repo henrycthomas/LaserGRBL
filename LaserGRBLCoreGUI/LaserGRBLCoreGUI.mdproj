@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ItemType>GenericProject</ItemType>
+    <ProjectGuid>{74E991F0-94F8-4253-ADF5-F22B90666184}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Default|AnyCPU' ">
+    <OutputPath>.\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="package.json" />
+    <None Include="main.js" />
+    <None Include="index.html" />
+    <None Include="scripts\App\app.js" />
+    <None Include="scripts\App\appCtrl.js" />
+    <None Include="scripts\App\Home\Home.html" />
+    <None Include="scripts\App\Home\HomeCtrl.js" />
+    <None Include="scripts\App\Home\Route.js" />
+    <None Include="scripts\App\Services\CommsService.js" />
+    <None Include="scripts\Vendor\angular-js-router.min.js" />
+    <None Include="gulpfile.js" />
+    <None Include="Content\src\css\foundation-flex.css" />
+    <None Include="Content\src\css\foundation.css" />
+    <None Include="Content\src\less\Global.less" />
+    <None Include="scripts\App\Services\SettingsService.js" />
+    <None Include="scripts\App\Config\Config.html" />
+    <None Include="scripts\App\Config\ConfigCtrl.js" />
+    <None Include="scripts\App\Config\Route.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="scripts\App\Config\" />
+  </ItemGroup>
+</Project>

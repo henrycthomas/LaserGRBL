@@ -1,0 +1,22 @@
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+.jogging-control .fa.nw {
+  transform: rotate(45deg);
+}
+.jogging-control .fa.sw {
+  transform: rotate(-45deg);
+}
+.jogging-control .fa.ne {
+  transform: rotate(-45deg);
+}
+.jogging-control .fa.se {
+  transform: rotate(45deg);
+}

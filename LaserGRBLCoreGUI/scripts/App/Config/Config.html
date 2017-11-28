@@ -1,0 +1,122 @@
+<div class="container-fluid">
+    <div class="row">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-grbl-tab" data-toggle="pill" href="#pills-grbl" role="tab" aria-controls="pills-grbl" aria-selected="true">GRBL</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-grbl" role="tabpanel" aria-labelledby="pills-grbl-tab">
+                <form name="grblConfig">
+                    <div class="form-check">
+                        <label>Homing Enabled</label>
+                        <input type="checkbox" ng-model="grbl.homingEnabled" />
+                    </div>
+                    <div class="form-check">
+                        <label>Laser Mode Enabled</label>
+                        <input type="checkbox" ng-model="grbl.laserMode" />
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>Max Rate</label>
+                    
+                        <div class="form-row align-items-center">
+                        
+                        <div class="col-auto">
+                          <label class="sr-only">X</label>
+                          <div class="input-group mb-2 mb-sm-0">
+                            <div class="input-group-addon">X</div>
+                            <input type="number" class="form-control" ng-model="grbl.maxRateX" />
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <label class="sr-only">Y</label>
+                          <div class="input-group mb-2 mb-sm-0">
+                            <div class="input-group-addon">Y</div>
+                            <input type="number" class="form-control" ng-model="grbl.maxRateY" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                        
+                        <label>PWM Limits</label>
+                    
+                        <div class="form-row align-items-center">
+                        
+                        <div class="col-auto">
+                          <label class="sr-only">Min</label>
+                          <div class="input-group mb-2 mb-sm-0">
+                            <div class="input-group-addon">Min</div>
+                            <input type="number" class="form-control" ng-model="grbl.minPWM" />
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <label class="sr-only">Max</label>
+                          <div class="input-group mb-2 mb-sm-0">
+                            <div class="input-group-addon">Max</div>
+                            <input type="number" class="form-control" ng-model="grbl.maxPWM" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>Resolution</label>
+                    
+                        <div class="form-row align-items-center">
+                        
+                        <div class="col-auto">
+                          <label class="sr-only">X</label>
+                          <div class="input-group mb-2 mb-sm-0">
+                            <div class="input-group-addon">X</div>
+                            <input type="number" class="form-control" ng-model="grbl.resolutionX" />
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <label class="sr-only">Y</label>
+                          <div class="input-group mb-2 mb-sm-0">
+                            <div class="input-group-addon">Y</div>
+                            <input type="number" class="form-control" ng-model="grbl.resolutionY" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>Table Dimensions</label>
+                    
+                        <div class="form-row align-items-center">
+                        
+                        <div class="col-auto">
+                          <label class="sr-only">H</label>
+                          <div class="input-group mb-2 mb-sm-0">
+                            <div class="input-group-addon">H</div>
+                            <input type="number" class="form-control" ng-model="grbl.tableHeight" />
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <label class="sr-only">W</label>
+                          <div class="input-group mb-2 mb-sm-0">
+                            <div class="input-group-addon">W</div>
+                            <input type="number" class="form-control" ng-model="grbl.tableWidth" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group" ng-show="grblConfig.$dirty">
+                        <button class="btn btn-warning pull-left" ng-click="cancel('grbl')">
+                            Cancel
+                        </button>
+                        <button class="btn btn-success pull-right" ng-click="save('grbl')">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

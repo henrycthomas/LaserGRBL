@@ -3,16 +3,42 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaserGRBL", "LaserGRBL\LaserGRBL.csproj", "{839698EC-FE05-4112-ACCB-A5D7556714F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaserGRBLCore", "LaserGRBLCore\LaserGRBLCore.csproj", "{C52526F1-1FB7-4B12-9760-EA324162AEE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaserGRBLCoreAPI", "LaserGRBLCoreAPI\LaserGRBLCoreAPI.csproj", "{16F15199-3180-4075-A72F-50117E8222C7}"
+EndProject
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "LaserGRBLCoreGUI", "LaserGRBLCoreGUI\LaserGRBLCoreGUI.mdproj", "{74E991F0-94F8-4253-ADF5-F22B90666184}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Default|Any CPU = Default|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{839698EC-FE05-4112-ACCB-A5D7556714F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{839698EC-FE05-4112-ACCB-A5D7556714F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{839698EC-FE05-4112-ACCB-A5D7556714F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{839698EC-FE05-4112-ACCB-A5D7556714F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{839698EC-FE05-4112-ACCB-A5D7556714F0}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{839698EC-FE05-4112-ACCB-A5D7556714F0}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{C52526F1-1FB7-4B12-9760-EA324162AEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C52526F1-1FB7-4B12-9760-EA324162AEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C52526F1-1FB7-4B12-9760-EA324162AEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C52526F1-1FB7-4B12-9760-EA324162AEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C52526F1-1FB7-4B12-9760-EA324162AEE4}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{C52526F1-1FB7-4B12-9760-EA324162AEE4}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{16F15199-3180-4075-A72F-50117E8222C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16F15199-3180-4075-A72F-50117E8222C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16F15199-3180-4075-A72F-50117E8222C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16F15199-3180-4075-A72F-50117E8222C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16F15199-3180-4075-A72F-50117E8222C7}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{16F15199-3180-4075-A72F-50117E8222C7}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{74E991F0-94F8-4253-ADF5-F22B90666184}.Debug|Any CPU.ActiveCfg = Default|Any CPU
+		{74E991F0-94F8-4253-ADF5-F22B90666184}.Debug|Any CPU.Build.0 = Default|Any CPU
+		{74E991F0-94F8-4253-ADF5-F22B90666184}.Release|Any CPU.ActiveCfg = Default|Any CPU
+		{74E991F0-94F8-4253-ADF5-F22B90666184}.Release|Any CPU.Build.0 = Default|Any CPU
+		{74E991F0-94F8-4253-ADF5-F22B90666184}.Default|Any CPU.ActiveCfg = Default|Any CPU
+		{74E991F0-94F8-4253-ADF5-F22B90666184}.Default|Any CPU.Build.0 = Default|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
